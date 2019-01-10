@@ -5,7 +5,7 @@
 	"relationalDb": {
 		"host":"localhost",
 		"databaseName": "tracker",
-		"userName": "postgres",
+		"userName": "issuetracker",
 		"password":"nevermind",
 		"driver":"postgres"
 	}

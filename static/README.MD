@@ -15,7 +15,7 @@ sudo service nginx restart
 Once nginx changes are done, you will need to configure grunt. From ```static/``` directory just run
 ```
 npm install
-bower install
+./node_modules/bower/bin/bower  install
 ```
 This will download the required UI dependencies. The final step is to create the ```dist/``` files which are minimized version for production.
 

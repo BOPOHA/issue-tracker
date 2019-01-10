@@ -5,7 +5,7 @@ create domain tcurrency numeric(25,2);
 create domain tquantity numeric(25,4);
 
 -- +goose StatementBegin
-create extension "uuid-ossp";
+create extension IF NOT EXISTS "uuid-ossp";
 -- +goose StatementEnd
 
 

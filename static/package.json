@@ -16,7 +16,8 @@
     "grunt-ng-annotate": "^0.10.0",
     "grunt-processhtml": "^0.3.7",
     "grunt-string-replace": "^1.1.1",
-    "node-uuid": "^1.4.3"
+    "node-uuid": "^1.4.3",
+    "bower": "^1.8.4"
   },
   "engines": {
     "node": ">=0.10.0"

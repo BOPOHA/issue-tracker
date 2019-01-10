@@ -47,13 +47,16 @@ cp test/config.json.sample test/config.json
 ```
 Next, create two databases in postgres; one is for running the unit tests, the other for the application.
 ```
-psql -c 'create database tracker;'
-psql -c 'create database tracker_test;'
+psql -c "create database tracker;"
+psql -c "create database tracker_test;"
+psql -c "create user issuetracker with login password 'nevermind';
+         grant all privileges on database tracker      to issuetracker;
+         grant all privileges on database tracker_test to issuetracker;"
+psql tracker       -c "CREATE EXTENSION \"uuid-ossp\";"
+psql tracker_test  -c "CREATE EXTENSION \"uuid-ossp\";"
+
 ```
-When databases have been created, execute the [check.sh](check.sh) script. It will download the go dependencies, create the database objects and run the unit tests.
-```
-./check.sh
-```
+
 Change to ```server/``` directory, build the application and execute
 ```
 cd server/
@@ -64,3 +67,10 @@ When you're done with [UI setup](/static/), browse to your [http://localhost/](h
 
 email: ```admin@admin.com```
 password: ```admin```
+
+
+# TODO
+
+- PG connection via ssl
+- production setup (vagrant, docker-compose, bash)
+- https://bower.io/blog/2017/how-to-migrate-away-from-bower/
