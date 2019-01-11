@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: ./provision/frontend/Dockerfile
+    ports:
+      - "8080:80"
+    command: ['-g', 'daemon off;']
+    depends_on:
+      - backend
+    links:
+      - backend
+
+  backend:
+    build:
+      context: ./
+      dockerfile: ./provision/backend/Dockerfile
+    links:
+      - database
+    depends_on:
+      - database
+    restart: on-failure:5
+
+  database:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: tracker
+      POSTGRES_USER: issuetracker
+      POSTGRES_PASSWORD: nevermind
+    volumes:
+      - ./local_storage/pg:/var/lib/postgresql/data

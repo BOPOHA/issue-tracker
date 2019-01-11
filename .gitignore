@@ -13,3 +13,6 @@ dbconf.yml
 
 #migration files
 migrations/dbconfig.yml
+
+# local docker's stored DB data
+local_storage
