@@ -7,7 +7,7 @@ services:
       context: ./
       dockerfile: ./provision/frontend/Dockerfile
     ports:
-      - "8080:80"
+      - "8083:80"
     command: ['-g', 'daemon off;']
     depends_on:
       - backend
@@ -31,4 +31,4 @@ services:
       POSTGRES_USER: issuetracker
       POSTGRES_PASSWORD: nevermind
     volumes:
-      - ./local_storage/pg:/var/lib/postgresql/data
+      - /data/docker_volumes/pg:/var/lib/postgresql/data
